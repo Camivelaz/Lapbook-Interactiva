@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Lapbook Interactiva</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <header class="encabezado">
+        <h1>Mi Lapbook Interactiva</h1>
+        <p>Proyecto escolar de programación</p>
+    </header>
+
+    <!-- PORTADA -->
+    <main>
+        <section id="portada" class="panel portada">
+            <h2>¡Bienvenido a mi Lapbook!</h2>
+            <p>Descubre cinco temas importantes del desarrollo web y la programación.</p>
+
+            <img
+                src="{{ url_for('static', filename='snoopyla.jpeg') }}"
+                alt="Imagen de programación"
+                class="imagen-portada"
+            >
+
+            <p class="temas-portada">
+                HTML · Jinja · CSS · JavaScript · SQL
+            </p>
+
+            <button class="boton boton-principal" onclick="comenzar()">
+                COMENZAR ✦
+            </button>
+        </section>
+
+        <!-- MENU -->
+        <section id="menu" class="panel menu oculto">
+            <h2>Explora los temas</h2>
+            <p>Selecciona el tema que deseas conocer:</p>
+
+            <div class="botones-temas">
+                <button class="boton-tema html" onclick="mostrarTema('HTML')">HTML</button>
+                <button class="boton-tema jinja" onclick="mostrarTema('Jinja')">Jinja</button>
+                <button class="boton-tema css" onclick="mostrarTema('CSS')">CSS</button>
+                <button class="boton-tema javascript" onclick="mostrarTema('JavaScript')">JavaScript</button>
+                <button class="boton-tema sql" onclick="mostrarTema('SQL')">SQL</button>
+            </div>
+
+            <button class="boton boton-secundario" onclick="volverPortada()">
+                ← Regresar a portada
+            </button>
+        </section>
+
+        <!-- CONTENIDO -->
+        <section id="informacion" class="panel informacion oculto">
+            <h2 id="titulo-tema"></h2>
+
+            <div id="contenido-tema"></div>
+
+            <div class="navegacion">
+                <button class="boton boton-secundario" onclick="volverMenu()">
+                    ← Otros temas
+                </button>
+
+                <button class="boton boton-secundario" onclick="volverPortada()">
+                    ⌂ Inicio
+                </button>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Mi Lapbook Interactiva | Proyecto de programación</p>
+    </footer>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
